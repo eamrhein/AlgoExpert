@@ -24,6 +24,7 @@ function twoNumberSum(array, targetSum) {
 	//		if twosum is found Return it
 	// else return the empty array;
 
+	// Easy Approach nested loop
 	let res = [];
 	for (let i = 0; i < array.length; i++) {
 		let firstNum = array[i];
@@ -40,5 +41,19 @@ function twoNumberSum(array, targetSum) {
 		}
 	}
 	return res;
+	
+	// better approach, hash table
+	let dictionary = {};
+	for(let i = 0; i < array.length; i += 1) {
+		let x = array[i];
+		let y = targetSum - x;
+		if (dictionary[y]) {
+			return x > y ?  [y,x] : [x, y]
+		} else {
+			dictionary[x] = x;
+		}
+	}
+	return [];
+}
 }
 
