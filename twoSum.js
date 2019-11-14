@@ -8,3 +8,37 @@
 // Sample input [3, 5, -4, 8, 11, 1, -1, 6], 10
 // Sample output: [-1, 11]
 
+function twoNumberSum(array, targetSum) {
+  // Write your code here.
+	// Inputs are DISTINCT INTEGERS
+	// Output is an Array
+	// Sorted Order if there are no twosums return an empty array
+	// At Most one pair.
+	
+	// Methodology
+	// Initialize Empty Array
+	// Loop through array starting at 0
+	// 	Save current value as  variable
+	// 	Loop through array starting at the index of the outer array + 1
+	//  	if the value of saved outer + current item === push items to array in order, 
+	//		if twosum is found Return it
+	// else return the empty array;
+
+	let res = [];
+	for (let i = 0; i < array.length; i++) {
+		let firstNum = array[i];
+		for (let j = i + 1; j < array.length; j++) {
+			let secondNum = array[j];
+			if (firstNum + secondNum === targetSum) {
+				if (secondNum > firstNum) {
+					res.push(firstNum, secondNum);
+				} else {
+					res.push(secondNum, firstNum)
+				}
+				return res;
+			}
+		}
+	}
+	return res;
+}
+
