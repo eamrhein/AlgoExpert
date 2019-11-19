@@ -1,3 +1,7 @@
+c// Do not edit the class below except for
+// the insert, contains, and remove methods.
+// Feel free to add new properties and methods
+// to the class.
 class BST {
   constructor(value) {
     this.value = value;
@@ -26,7 +30,6 @@ class BST {
   }
 
   contains(value) {
-		if (this.value === value) return true;
 		if (value < this.value) {
 			if (this.left === null) {
 				return false;
@@ -39,7 +42,7 @@ class BST {
 			}
 			return this.right.contains(value)
 		}
-		return false
+		return true
 		// // Write your code here.
   }
 
@@ -63,3 +66,7 @@ class BST {
 		}
     return this;
   }
+}
+
+// Do not edit the line below.
+exports.BST = BST;
