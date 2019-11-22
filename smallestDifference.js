@@ -19,7 +19,7 @@ function smallestDifference(arrayOne, arrayTwo) {
 		if(numOne < numTwo) {
 			current = numTwo - numOne;
 			i += 1;
-		} else if (numOne < numTwo) {
+		} else if (numOne > numTwo) {
 			current = numOne - numTwo;
 			j += 1;
 		} else {
