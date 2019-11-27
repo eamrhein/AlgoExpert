@@ -7,14 +7,18 @@ class BinaryTree {
 }
 
 function branchSums(root) {
-	if (root.right && root.left) {
-		return [branchSums(root.right) + branchSums(root.left)]
-	} else if(root.left) {
-		return [root.value +branchSums(root.left)[0]]
-	} else if (root.right) {
-		return [root.value + branchSums(root.right)[0]]
-	} else {
-		return [root.value];
-	} 
-	
+	const sums = [];
+	helper(root, 0, sums);
+	return sums;
+}
+
+function helper(node, sum, sumList) {
+	if (!node) return;
+	const newSum = sum + node.value;
+	if(!node.left && !node.right) {
+		sumList.push(newSum);
+		return;
+	}
+	helper(node.left, newSum, sumList);
+	helper(node.right, newSum, sumList)
 }
